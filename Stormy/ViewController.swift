@@ -27,7 +27,8 @@ class ViewController: UIViewController {
         let forecastURL = URL(string: "37.8267,-122.4233", relativeTo: base)
         
         let weatherData = try! Data(contentsOf: forecastURL!)
-        print(weatherData)
+        let json = try! JSONSerialization.jsonObject(with: weatherData, options: [])
+        print(json)
         
         let currentWeather = CurrentWeather(temperature: 85.0, humidity: 0.8, precipProbability: 0.1, summary: "Hot!", icon: "clear-day")
         let viewModel = CurrentWeatherViewModel(model: currentWeather)
