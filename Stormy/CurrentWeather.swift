@@ -34,3 +34,30 @@ extension CurrentWeather {
         }
     }
 }
+
+extension CurrentWeather {
+    struct Key {
+        static let temperature = "temperature"
+        static let humidity = "humidity"
+        static let precipitationProbability = "precipProbability"
+        static let summary = "summary"
+        static let icon = "icon"
+    }
+    
+    
+    init?(json: [String: AnyObject]) {
+        guard let tempValue = Key.temperature as? Double,
+        let humidityValue = Key.humidity as? Double,
+        let precipProbabilityValue = Key.precipitationProbability as? Double,
+        let summaryString = Key.summary as? String,
+        let iconString = Key.icon as? String else {
+            return nil
+        }
+        
+        self.temperature = tempValue
+        self.humidity = humidityValue
+        self.precipProbability = precipProbabilityValue
+        self.summary = summaryString
+        self.icon = iconString
+    }
+}
