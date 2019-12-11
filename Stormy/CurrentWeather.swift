@@ -20,17 +20,17 @@ struct CurrentWeather {
 extension CurrentWeather {
     var iconImage: UIImage {
         switch icon {
-        case "clear-day": return #imageLiteral(resourceName: "clear-day.png")
-        case "clear-night": return #imageLiteral(resourceName: "clear-night.png")
-        case "rain": return #imageLiteral(resourceName: "rain@3x.png")
-        case "snow": return #imageLiteral(resourceName: "snow.png")
-        case "sleet": return #imageLiteral(resourceName: "sleet.png")
-        case "wind": return #imageLiteral(resourceName: "wind.png")
-        case "fog": return #imageLiteral(resourceName: "fog.png")
-        case "cloudy": return #imageLiteral(resourceName: "cloudy.png")
-        case "partly-cloudy-day": return #imageLiteral(resourceName: "partly-cloudy.png")
-        case "cloudy-night": return #imageLiteral(resourceName: "cloudy-night.png")
-        default: return #imageLiteral(resourceName: "default.png")
+        case "clear-day": return #imageLiteral(resourceName: "clear-day")
+        case "clear-night": return #imageLiteral(resourceName: "clear-night")
+        case "rain": return #imageLiteral(resourceName: "rain")
+        case "snow": return #imageLiteral(resourceName: "snow")
+        case "sleet": return #imageLiteral(resourceName: "sleet")
+        case "wind": return #imageLiteral(resourceName: "wind")
+        case "fog": return #imageLiteral(resourceName: "fog")
+        case "cloudy": return #imageLiteral(resourceName: "cloudy")
+        case "partly-cloudy-day": return #imageLiteral(resourceName: "partly-cloudy-day")
+        case "partly-cloudy-night": return #imageLiteral(resourceName: "partly-cloudy-night")
+        default: return #imageLiteral(resourceName: "default")
         }
     }
 }
@@ -46,17 +46,17 @@ extension CurrentWeather {
     
     
     init?(json: [String: AnyObject]) {
-        guard let tempValue = Key.temperature as? Double,
-        let humidityValue = Key.humidity as? Double,
-        let precipProbabilityValue = Key.precipitationProbability as? Double,
-        let summaryString = Key.summary as? String,
-        let iconString = Key.icon as? String else {
-            return nil
+        guard let tempValue = json[Key.temperature] as? Double,
+        let humidityValue = json[Key.humidity] as? Double,
+        let precipitationProbabilityValue = json[Key.precipitationProbability] as? Double,
+        let summaryString = json[Key.summary] as? String,
+            let iconString = json[Key.icon] as? String else {
+                return nil
         }
         
         self.temperature = tempValue
         self.humidity = humidityValue
-        self.precipProbability = precipProbabilityValue
+        self.precipProbability = precipitationProbabilityValue
         self.summary = summaryString
         self.icon = iconString
     }

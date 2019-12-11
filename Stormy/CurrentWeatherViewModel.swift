@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+import Foundation
+import UIKit
+
 struct CurrentWeatherViewModel {
     let temperature: String
     let humidity: String
@@ -18,13 +21,16 @@ struct CurrentWeatherViewModel {
     
     init(model: CurrentWeather) {
         let roundedTemperature = Int(model.temperature)
-        let humidityPercentValue = Int(model.humidity * 100)
-        let ppPercentValue = Int(model.precipProbability * 100)
-
         self.temperature = "\(roundedTemperature)º"
+        
+        let humidityPercentValue = Int(model.humidity * 100)
         self.humidity = "\(humidityPercentValue)%"
-        self.precipitationProbability = "\(ppPercentValue)%"
+        
+        let precipitationPercentValue = Int(model.precipProbability * 100)
+        self.precipitationProbability = "\(precipitationPercentValue)%"
+        
         self.summary = model.summary
         self.icon = model.iconImage
     }
 }
+
