@@ -7,7 +7,7 @@ Stormy is an iOS application that uses the Dark Sky API to report the weather. I
 Open terminal and type the repo url of this project.
 
 ```bash
-git clone [repo url]
+git clone https://github.com/azharislam/Stormy.git
 ```
 Open the project in Xcode and run on simulator or device.
 ## Usage
