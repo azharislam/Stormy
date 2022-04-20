@@ -2,6 +2,8 @@
 
 Stormy is an iOS application that uses the Dark Sky API to report the weather. It was made in Xcode and Swift. No external libraries were used in this project.
 
+[![Simulator-Screen-Shot-i-Phone-13-2022-04-20-at-05-23-24.png](https://i.postimg.cc/t4VF6YZh/Simulator-Screen-Shot-i-Phone-13-2022-04-20-at-05-23-24.png)](https://postimg.cc/K1xKSc5z)
+
 ## Installation
 
 Open terminal and type the repo url of this project.
